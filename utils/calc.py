@@ -14,6 +14,10 @@ def sub(a: int,b: int) -> int:
 def add_all(*args: float) -> float:
     return sum(args)
 
-if __name__ == '__main__':
-    print(add(2,3))
-    print(sub(6,2))
+# if __name__ == '__main__':
+#     print(add(2,3))
+#     print(sub(6,2))
+
+
+print(add(2,3))
+print(sub(6,2))
