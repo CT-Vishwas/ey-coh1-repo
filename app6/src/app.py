@@ -1,7 +1,7 @@
 # use data_ingestion.py to ingest data and perform basic operations
 from data_ingestion import ingest_csv
 import matplotlib.pyplot as plt
-from reporting import generate_report
+from reporting import generate_report, markdown_to_pdf
 import seaborn as sns
 
 
@@ -42,12 +42,15 @@ def main():
 
     # Generate a report using the reporting module
     generate_report(
-        filename='../output/compliance_report.pdf',
+        filename='../output/compliance_report.md',
         summary_data='This report summarizes the compliance status of applications across departments.',
-        compliance_data=merged_df[['App_name', 'Department', 'Compliance_Score', 'Audit_date']],
+        compliance_data=merged_df[['App_Name', 'Department', 'Compliance_Score', 'Audit_Date']],
         compliance_percentage=compliance_percentage,
         chart_path='../output/compliance_score_by_department.png'
     )
+
+    # Convert the markdown report to PDF
+    markdown_to_pdf(markdown_file='../output/compliance_report.md', pdf_file='../output/compliance_report.pdf')
 
 if __name__ == "__main__":
     main()
